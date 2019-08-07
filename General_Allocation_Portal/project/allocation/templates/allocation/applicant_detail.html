@@ -1,0 +1,27 @@
+{% extends "allocation/admin1.html" %}
+{% load i18n admin_urls static admin_list %}
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+    <a href="{% url 'allocation:admin1' %}">{% trans 'Home' %}</a>
+    &rsaquo; <a href="{% url 'allocation:applicant_list' %}">{% trans 'Applicants' %}</a>
+    &rsaquo; {{ applicant.name }}
+    </div>
+{% endblock %}
+{% block content %}
+{% if applicant.institute.name == request.user.username %}
+<p><b>Name:</b> {{ applicant.name }}</p>
+<p><b>Rank:</b> {{ applicant.rank }}</p>
+<p><b>Allotted Choice:</b> 
+{% for choice in applicant.alloted_choice.all %}
+{{choice}}
+{% endfor %}
+<form action="{% url 'allocation:applicant-update' applicant.pk %}">
+    <input type="submit" value="Update" />
+</form>
+<form action="{% url 'allocation:applicant-delete' applicant.pk %}">
+    <input style="background-color: red;" type="submit" value="Delete" />
+</form>
+{% else %}
+Unauthorised access
+{% endif %}
+{% endblock %}

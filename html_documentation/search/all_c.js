@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['mainpage_2edox',['mainpage.dox',['../mainpage_8dox.html',1,'']]],
+  ['make_5fapplication_5fform',['make_application_form',['../namespaceallocation_1_1views.html#a5496a8bfd7622b892f06d0c7db4512f7',1,'allocation::views']]],
+  ['manage',['manage',['../namespacemanage.html',1,'']]],
+  ['manage_2epy',['manage.py',['../manage_8py.html',1,'']]],
+  ['maxsize',['maxsize',['../namespaceallocation_1_1views.html#af0546286e6760b992fb5afa89c25d17d',1,'allocation::views']]],
+  ['meta',['Meta',['../classallocation_1_1models_1_1Institute_1_1Meta.html',1,'allocation::models::Institute']]],
+  ['meta',['Meta',['../classallocation_1_1models_1_1Application_1_1Meta.html',1,'allocation::models::Application']]],
+  ['meta',['Meta',['../classallocation_1_1forms_1_1InstiForm_1_1Meta.html',1,'allocation::forms::InstiForm']]],
+  ['meta',['Meta',['../classallocation_1_1models_1_1Allocationcl_1_1Meta.html',1,'allocation::models::Allocationcl']]],
+  ['middleware',['MIDDLEWARE',['../namespacemysite_1_1settings.html#a90df4fc7c17f07da22241f9ceb21f3b9',1,'mysite::settings']]],
+  ['migration',['Migration',['../classallocation_1_1migrations_1_10001__initial_1_1Migration.html',1,'allocation::migrations::0001_initial']]],
+  ['model',['model',['../classallocation_1_1admin_1_1ChoiceInline.html#a784512356667631b6604d9a8cf88e879',1,'allocation.admin.ChoiceInline.model()'],['../classallocation_1_1admin_1_1AllotedChoiceToAppInLine.html#acbf99ab552eb388f200242ba608c9173',1,'allocation.admin.AllotedChoiceToAppInLine.model()'],['../classallocation_1_1forms_1_1InstiForm_1_1Meta.html#a875d2bb06089f51feb089c17d1def12d',1,'allocation.forms.InstiForm.Meta.model()'],['../classallocation_1_1views_1_1ChoiceListView.html#ab458c04a26b853c562e9839602672ae2',1,'allocation.views.ChoiceListView.model()'],['../classallocation_1_1views_1_1ApplicantListView.html#a22256acac24dbbd88147cc3bb2dcbdb3',1,'allocation.views.ApplicantListView.model()'],['../classallocation_1_1views_1_1ChoiceDetailView.html#a16424450243fe984537cdf5328edf829',1,'allocation.views.ChoiceDetailView.model()'],['../classallocation_1_1views_1_1ApplicantDetailView.html#a02e57146e0d287e47e13ea93905f6810',1,'allocation.views.ApplicantDetailView.model()'],['../classallocation_1_1views_1_1ChoiceUpdate.html#a454f40af6418c8c8eb1f3031ad435773',1,'allocation.views.ChoiceUpdate.model()'],['../classallocation_1_1views_1_1ChoiceDelete.html#a66c84c04cc76984f9059415309508774',1,'allocation.views.ChoiceDelete.model()'],['../classallocation_1_1views_1_1ApplicantUpdate.html#a28eb9c704c9ebc71e5551b5cd38f6127',1,'allocation.views.ApplicantUpdate.model()'],['../classallocation_1_1views_1_1ApplicantDelete.html#a4c765bedbc7f53adc7a7d96e7d4c5744',1,'allocation.views.ApplicantDelete.model()']]],
+  ['models_2epy',['models.py',['../models_8py.html',1,'']]],
+  ['mysite',['mysite',['../namespacemysite.html',1,'']]],
+  ['settings',['settings',['../namespacemysite_1_1settings.html',1,'mysite']]],
+  ['urls',['urls',['../namespacemysite_1_1urls.html',1,'mysite']]],
+  ['views',['views',['../namespacemysite_1_1views.html',1,'mysite']]],
+  ['wsgi',['wsgi',['../namespacemysite_1_1wsgi.html',1,'mysite']]]
+];

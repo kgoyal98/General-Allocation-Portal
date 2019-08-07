@@ -1,0 +1,17 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Model",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="allocation.models.Allocationcl",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classallocation_1_1models_1_1Allocationcl.html",tooltip="Application Model. "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="allocation.models.Applicant",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classallocation_1_1models_1_1Applicant.html",tooltip="Applicant Model. "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="allocation.models.Application",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classallocation_1_1models_1_1Application.html",tooltip="Application Model. "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="allocation.models.Choice",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classallocation_1_1models_1_1Choice.html",tooltip="Choice Model. "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="allocation.models.Institute",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classallocation_1_1models_1_1Institute.html",tooltip="Institute Model. "];
+}

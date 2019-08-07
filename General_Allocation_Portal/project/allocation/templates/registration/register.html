@@ -1,0 +1,30 @@
+{% extends 'admin/base.html' %}
+{% load i18n admin_urls static admin_list %}
+
+{% load tag %}
+<!--  -->
+{% block branding %}
+<h1 id="site-name">Institute Registration</h1>
+{% endblock %}
+
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+    <a href="{% url 'index1' %}">{% trans 'Home' %}</a>
+    </div>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} <br>{{ field }}
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+    </div>
+{% endfor %}
+    <button type="submit" style="width: 180px; height: 30px; font-size: 20px">Sign up</button>
+  </form>
+{% endblock %}

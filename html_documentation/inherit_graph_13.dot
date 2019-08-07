@@ -1,0 +1,11 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="UpdateView",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="allocation.views.Applicant\lUpdate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classallocation_1_1views_1_1ApplicantUpdate.html",tooltip="View for institute page which displays a form to update the details of applicants This is a generic u..."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="allocation.views.ChoiceUpdate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classallocation_1_1views_1_1ChoiceUpdate.html",tooltip="View for institute page which displays a form to update the details of choices This is a generic upda..."];
+}

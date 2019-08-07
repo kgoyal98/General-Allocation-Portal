@@ -1,0 +1,23 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %} 
+{% load tag %}
+{% block object-tools-items %}
+{{ block.super }}
+
+
+
+{% hello_world request.get_full_path as name %}
+
+{% if name == True %}
+	<li>
+	  <form method="POST" action="/allocation/button_action" enctype="multipart/form-data">
+	    {% csrf_token %}
+	    <input type="hidden" name="prikey" value="{{ request.get_full_path }}">  
+	    <button type="submit"> Allocate</button>
+	  </form>
+	</li>
+{% endif %}
+
+
+
+{% endblock %}

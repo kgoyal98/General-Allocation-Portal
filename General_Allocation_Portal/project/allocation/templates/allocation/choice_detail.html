@@ -1,0 +1,40 @@
+{% extends "allocation/admin1.html" %}
+{% load i18n admin_urls static admin_list %}
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+    <a href="{% url 'allocation:admin1' %}">{% trans 'Home' %}</a>
+    &rsaquo; <a href="{% url 'allocation:choice_list' %}">{% trans 'Choices' %}</a>
+    &rsaquo; {{ choice.choice_name }}
+    </div>
+{% endblock %}
+{% block content %}
+{% if choice.institute.name == request.user.username %}
+<p><b>Choice name:</b> {{ choice.choice_name }}</p>
+<p><b>Capacity:</b> {{ choice.capacity }}</p>
+<p><b>Seats Filled:</b> {{ choice.alloted_applicant.all|length }}</p>
+<form action="{% url 'allocation:choice-update' choice.pk %}">
+    <input type="submit" value="Update" />
+</form>
+<form action="{% url 'allocation:choice-delete' choice.pk %}">
+    <input style="background-color: red;" type="submit" value="Delete" />
+</form>
+<br>
+<p>List of Applicants who have been allocated {{ choice.choice_name }} choice: </p>
+<ul>
+	<table style="width:60%">
+		<tr>
+		  <th>Name</th>
+		  <th>Rank</th>
+		</tr>
+		{% for applicant in choice.alloted_applicant.all %}
+		<tr>
+		  <td> <a href="{% url 'allocation:applicant-detail' applicant.pk %}">{{ applicant.name }}</a></td>
+		  <td> {{ applicant.rank }}</td>
+		</tr> 
+	{% endfor %}
+	</table>
+</ul>
+{% else %}
+Unauthorised access
+{% endif %}
+{% endblock %}

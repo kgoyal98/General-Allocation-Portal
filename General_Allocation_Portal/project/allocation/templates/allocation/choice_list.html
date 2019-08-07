@@ -1,0 +1,48 @@
+{% extends "allocation/admin1.html" %}
+{% load i18n admin_urls static admin_list %}
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+    <a href="{% url 'allocation:admin1' %}">{% trans 'Home' %}</a>
+    &rsaquo; Choices
+    </div>
+{% endblock %}
+{% block content %}
+<h1>Choice List</h1>
+
+{% if choice_list %}
+<ul>
+
+  <li style="float:right; vertical-align: top;">
+	<h3 style="margin-top: -50px"> For uploading choices</h3>
+	<form method="POST" action="/allocation/choice_make" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile" title='Please upload file in .csv format only'>
+    <button type="submit">Upload</button>
+    </form>
+  </li>
+  
+  {% for choice in choice_list %}
+  <li>
+    <a href="{% url 'allocation:choice-detail' choice.pk %}">{{ choice.choice_name }}</a> 
+  </li>
+
+  {% endfor %}
+
+</ul>
+
+{% else %}
+
+<li style="float:right; vertical-align: top;"">
+	<h3 style="margin-top: -50px"> For uploading choices</h3>
+	<form method="POST" action="/allocation/choice_make" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" accept=".csv" name="myfile" title='Please upload file in .csv format only'>
+    <button type="submit">Upload</button>
+    </form>
+</li>
+<p>There are no choices available.</p>
+{% endif %} 
+
+</div>
+
+{% endblock %}

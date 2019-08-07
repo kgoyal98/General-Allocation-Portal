@@ -1,0 +1,48 @@
+.container {  position: relative; }
+
+.container{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-image: url('BG.png');
+    /*background-size: 2000px 700px;*/
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.60;
+}
+
+.content {
+    position: relative; 
+    margin-top: 16%;
+    font-size: 60px;
+    opacity: 20;
+}​
+
+.tool1 {
+    /*margin-top: 680px;*/
+    background-color: green;
+    z-index: 1;
+}
+
+.tool2 {
+    /*margin-top: 700px;*/
+    background-color: #5DBCD2;
+    z-index: 1;
+}
+
+.tool3 {
+    /*margin-top: 720px;*/
+    background-color: #5DBCD2;
+    z-index: 1;
+}
+
+.tool4 {
+    /*margin-top: 720px;*/
+    background-color: #5DBCD2;
+    z-index: 1;
+}

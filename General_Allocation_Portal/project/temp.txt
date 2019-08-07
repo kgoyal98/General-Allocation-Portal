@@ -1,0 +1,20 @@
+from allocation.models import Choice,Application,Applicant
+a1=Applicant.objects.create(name="kunal" , rank=3)
+a2=Applicant.objects.create(name="aman" , rank=59)
+a3=Applicant.objects.create(name="eashan" , rank=34)
+c1=Choice.objects.create(choice_name="EE",capacity=3)
+c2=Choice.objects.create(choice_name="CSE",capacity=3)
+c3=Choice.objects.create(choice_name="ME",capacity=3)
+
+a1=Applicant.objects.get(id=1)
+a2=Applicant.objects.get(id=2)
+a3=Applicant.objects.get(id=3)
+c1=Choice.objects.get(id=1)
+c2=Choice.objects.get(id=2)
+c3=Choice.objects.get(id=3)
+
+m1=Application(choice=c1,applicant=a1,priority=1)
+m2=Application(choice=c2,applicant=a1,priority=2)
+m3=Application(choice=c3,applicant=a2,priority=1)
+m4=Application(choice=c1,applicant=a3,priority=1)
+m1.save()

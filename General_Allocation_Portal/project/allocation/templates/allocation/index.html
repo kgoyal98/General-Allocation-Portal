@@ -1,0 +1,102 @@
+{% load i18n static %}<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}" />
+    {% block extrastyle %}{% endblock %}
+    {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
+    {% block extrahead %}{% endblock %}
+    {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+</head>
+{% load i18n %}
+<body>
+
+    <div id="container">
+        <!-- Header -->
+        <div id="header">
+            <div id="branding">
+                <h1>Applicant Portal</h1>
+            </div>
+            {% block usertools %}
+            <div id="user-tools">
+                {% block welcome-msg %}
+                {% trans 'Welcome,' %}
+                <strong>{{ applicant.name }}</strong>.
+                {% endblock %}
+                {% block userlinks %}
+                {% if user.has_usable_password %}
+                <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a> /
+                {% endif %}
+                <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
+                {% endblock %}
+            </div>
+            {% endblock %}
+            {% block nav-global %}{% endblock %}
+        </div>
+        <!-- Content -->
+        <div id="content" class="{% block coltype %}colM{% endblock %}">
+            {% block content %}
+            {% if applicant.is_float %}
+            <form method="POST" action="/allocation/freeze" enctype="multipart/form-data">
+            {% csrf_token %}
+                <input type="hidden" name="applicant" value="{{ applicant.pk }}">
+                <button type="submit" style="float: right; width: 180px; height: 30px; font-size: 20px"> Freeze</button>
+            </form>
+            <form method="POST" action="/allocation/float" enctype="multipart/form-data">
+            {% csrf_token %}
+                <input type="hidden" name="applicant" value="{{ applicant.pk }}">
+                <button type="submit" style="float: right; width: 180px; height: 30px; font-size: 20px"> Float</button>
+            </form>
+            <form method="POST" action="/allocation/drop" enctype="multipart/form-data">
+            {% csrf_token %}
+                <input type="hidden" name="applicant" value="{{ applicant.pk }}">
+                <button type="submit" style="float: right; width: 180px; height: 30px; font-size: 20px"> Drop</button>
+            </form>
+            {% endif %}
+            {% if success %}
+            <p style="color:green">Your choices have been registered.</p>
+            {% endif %}
+            <p> <b>Name:</b> {{applicant.name}}<br>
+                <b>Institute:</b> {{applicant.institute}}<br>
+                <b>Rank:</b> {{applicant.rank}}<br>
+                <b>Ongoing Round:</b> {{applicant.institute.round_num}}<br>
+                <b>Allocated choice:</b> 
+                {% for choice in applicant.alloted_choice.all %}
+                {{choice}}
+                {% endfor %}
+            </p>
+            <p>Fill your choices and priorities:</p>
+            <form action="/allocation/" method="post">{% csrf_token %}
+
+                {{ formset.management_form }}
+                <ul>
+                {% for form in formset %}
+                {{ form.non_field_errors }}
+                {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+                {% endfor %}
+                <li>
+                {% for field in form.visible_fields %}
+                <div class="fieldWrapper">
+                    {{ field.errors }}
+                    {{ field.label_tag }} {{ field }}
+                </div>
+                {% endfor %}
+                <!-- {{ form.applicant }} {{ form.choice }} {{ form.priority }}<br> -->
+                <br>
+                {% endfor %}
+            </ul>
+                {% if not applicant.institute.is_allocated %}
+                <input type="submit" value="Submit">
+                {% endif %}
+            </form>
+            {% endblock %}
+            <br class="clear" />
+        </div>
+        <!-- END Content -->
+
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% extends "admin/change_list.html" %} 
+{% load i18n %} 
+{% block object-tools-items %}
+{{ block.super }}
+
+
+{% if request.get_full_path == "/admin/allocation/choice/" %}
+<li>
+	<form method="POST" action="/allocation/import_db" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <button type="submit">Upload</button>
+  </form>
+</li>
+{% endif %}
+
+
+{% if request.get_full_path == "/admin/allocation/applicant/" %}
+<li>
+	<form method="POST" action="/allocation/applicant_make" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <button type="submit">Upload</button>
+  </form>
+</li>
+{% endif %}
+
+
+<!-- {% if request.get_full_path == "/admin/allocation/institute/1/change/" %}
+<li>
+  <form method="POST" action="/allocation/button_action" enctype="multipart/form-data">
+    {% csrf_token %}
+    <button type="submit"> Allocate</button>
+  </form>
+</li>
+{% endif %} -->
+
+
+
+{% endblock %}

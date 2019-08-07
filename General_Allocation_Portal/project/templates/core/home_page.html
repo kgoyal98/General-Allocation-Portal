@@ -1,0 +1,60 @@
+{% load static %}
+<html> 
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'allocation/home_page.css' %}" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 226) {
+                $(".header").addClass("fixed");
+            } else {
+                $(".header").removeClass("fixed");
+            }
+        });
+    </script>
+    <style type="text/css">
+        .fixed {
+        position:fixed;
+        top:0;
+        left:0;        
+    }
+    </style>
+</head>
+<body>
+<!-- <table > 
+        <tr>
+        <td rowspan="2" style="background-attachment: fixed"><img src="{% static 'allocation/logo.png' %}" width="30%" alt="logo"></td>
+        </tr>
+
+</table> -->
+<img src ="{% static 'allocation/logo.png' %}" class="fixed" width="20%" height="20%" alt="logo" >
+  <div class="container">
+    <div class="content"><h1 align="center" style="color:black">General Allocation Portal</h1></div>
+  </div>
+
+  <div class="tool1" style="margin-top: 52%;">
+  </div>
+
+  
+  <div class="tool2" style="margin-top: 10px; text-align: center; height: 60px; color: white">
+  <a href = "/allocation/admin" style="font-size: 40px;">
+    Institute login
+  </a>
+  </div>
+
+  <div class="tool3" style="margin-top: 5px; text-align: center; height: 60px; color:white">
+    <a href="/allocation" style="font-size: 40px">
+      Applicant login
+    </a>
+  </div>
+
+  <div class="tool4" style="margin-top: 5px; text-align: center; height: 60px; color:white">
+    <a href="/allocation/register" style="font-size: 40px">
+	Register with us
+    </a>
+  </div>
+
+
+
+</body>
+</html>
